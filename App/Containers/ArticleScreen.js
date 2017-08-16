@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 
 // styles
 import styles from './Styles/ArticleScreenStyles.js'
@@ -23,7 +24,27 @@ class ArticleScreen extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Article</Text>
+        <ScrollableTabView
+          style={{}}
+          initialPage={0}
+          renderTabBar={() => <DefaultTabBar />}
+        >
+          <ScrollView tabLabel='Latest'>
+            <Text>
+              Latest
+            </Text>
+          </ScrollView>
+          <ScrollView tabLabel='Top'>
+            <Text>
+              Top
+            </Text>
+          </ScrollView>
+          <ScrollView tabLabel='Popular'>
+            <Text>
+              Popular
+            </Text>
+          </ScrollView>
+        </ScrollableTabView>
       </View>
     )
   }
