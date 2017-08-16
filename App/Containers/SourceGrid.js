@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, ListView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
 
 // Styles
 import styles from './Styles/SourceGridStyles'
@@ -39,7 +40,7 @@ class SourceGrid extends React.Component {
 
   renderRow (rowData) {
     return (
-      <TouchableOpacity style={styles.row} onPress={() => {}}>
+      <TouchableOpacity style={styles.row} onPress={() => Actions.articleScreen({source: rowData.id, title: rowData.name})}>
         <Text style={styles.boldLabel}>{rowData.name}</Text>
       </TouchableOpacity>
     )

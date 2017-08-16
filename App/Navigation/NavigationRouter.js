@@ -5,6 +5,7 @@ import CustomNavBar from './CustomNavBar'
 
 // screens identified by the router
 import SourceScreen from '../Containers/SourceScreen'
+import ArticleScreen from '../Containers/ArticleScreen'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -16,6 +17,7 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='root'>
           <Scene initial key='sourceScreen' component={SourceScreen} title='News Portal' navBar={CustomNavBar} showSearchBar />
+          <Scene key='articleScreen' component={ArticleScreen} title='Source' navBar={CustomNavBar} showBackButton showSearchButton />
         </Scene>
       </Router>
     )
