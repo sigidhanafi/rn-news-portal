@@ -18,7 +18,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
     color: Colors.black,
     textAlign: 'center',
-    marginBottom: Metrics.smallMargin
+    marginVertical: Metrics.baseMargin
   },
   label: {
     alignSelf: 'center',

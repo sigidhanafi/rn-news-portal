@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, Text, ListView, TouchableOpacity } from 'react-native'
+import { View, Image, Text, ListView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
+
+import { Images } from '../Themes'
 
 // Styles
 import styles from './Styles/SourceGridStyles'
@@ -42,6 +44,7 @@ class SourceGrid extends React.Component {
     const sortAvailable = rowData.sortBysAvailable && Array.isArray(rowData.sortBysAvailable) && rowData.sortBysAvailable.length > 0 ? rowData.sortBysAvailable : []
     return (
       <TouchableOpacity style={styles.row} onPress={() => Actions.articleListScreen({sourceId: rowData.id, sortAvailable, title: rowData.name})}>
+        <Image source={Images.businessInsiderUk} />
         <Text style={styles.boldLabel}>{rowData.name}</Text>
       </TouchableOpacity>
     )
