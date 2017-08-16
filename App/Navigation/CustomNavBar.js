@@ -45,7 +45,11 @@ class CustomNavBar extends React.Component {
     if (this.state.showSearchBar) {
       return <View style={{width: Metrics.icons.medium}} />
     } else if (!this.props.showSearchButton) {
-      return null
+      return (
+        <View style={styles.leftContainer}>
+          <TouchableOpacity onPress={() => {}} style={styles.buttonContainer} />
+        </View>
+      )
     } else {
       return (
         <View style={styles.rightButtons}>

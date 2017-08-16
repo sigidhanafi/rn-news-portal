@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, ListView, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
 
 // Styles
 import styles from './Styles/ArticleListStyles'
@@ -45,7 +46,7 @@ class ArticleList extends React.Component {
 
   renderRow = (rowData) => {
     return (
-      <TouchableOpacity style={styles.row}>
+      <TouchableOpacity style={styles.row} onPress={() => Actions.articleScreen({ title: 'Author: ' + rowData.author, url: rowData.url })}>
         <View style={styles.rowBody}>
           <Image
             source={{ uri: rowData.urlToImage }}

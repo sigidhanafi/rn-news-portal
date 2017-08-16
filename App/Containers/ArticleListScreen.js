@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 
 // styles
-import styles from './Styles/ArticleScreenStyles.js'
+import styles from './Styles/ArticleListScreenStyles.js'
 
 // redux
 import ArticleActions from '../Redux/ArticleRedux'
