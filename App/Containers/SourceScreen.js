@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 
 // styles
@@ -7,6 +7,9 @@ import styles from './Styles/SourceScreenStyles.js'
 
 // redux
 import SourceActions from '../Redux/SourceRedux'
+
+// container
+import SourceGrid from './SourceGrid'
 
 class SourceScreen extends React.Component {
   state: {
@@ -27,7 +30,7 @@ class SourceScreen extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>News Portal</Text>
+        <SourceGrid />
       </View>
     )
   }

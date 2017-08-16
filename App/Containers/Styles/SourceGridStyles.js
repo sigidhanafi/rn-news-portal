@@ -1,26 +1,22 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
+import { Metrics, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
-  ...ApplicationStyles.screen,
   container: {
-    flex: 1,
-    marginTop: Metrics.navBarHeight,
-    backgroundColor: Colors.background
+    flex: 1
   },
   row: {
-    width: Metrics.screenWidth / 2 - (1 * Metrics.baseMargin),
-    height: (Metrics.screenWidth / 2 - (1 * Metrics.baseMargin)) * 1.7,
+    width: (Metrics.screenWidth - (2 * Metrics.baseMargin)) / 2,
+    height: (Metrics.screenWidth - (3 * Metrics.baseMargin)) / 2,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: Metrics.baseMargin,
-    backgroundColor: Colors.fire,
-    borderRadius: Metrics.smallMargin
+    backgroundColor: Colors.snow,
+    marginBottom: Metrics.baseMargin
   },
   boldLabel: {
     fontWeight: 'bold',
     alignSelf: 'center',
-    color: Colors.snow,
+    color: Colors.black,
     textAlign: 'center',
     marginBottom: Metrics.smallMargin
   },
@@ -32,6 +28,8 @@ export default StyleSheet.create({
   listContent: {
     justifyContent: 'space-around',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    paddingTop: Metrics.baseMargin,
+    paddingBottom: Metrics.baseMargin
   }
 })
