@@ -45,8 +45,9 @@ class ArticleList extends React.Component {
   }
 
   renderRow = (rowData) => {
+    const author = rowData.author || '-'
     return (
-      <TouchableOpacity style={styles.row} onPress={() => Actions.articleScreen({ title: 'Author: ' + rowData.author, url: rowData.url })}>
+      <TouchableOpacity style={styles.row} onPress={() => Actions.articleScreen({ title: 'Author: ' + author, url: rowData.url })}>
         <View style={styles.rowBody}>
           <Image
             source={{ uri: rowData.urlToImage }}
