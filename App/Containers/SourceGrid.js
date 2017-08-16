@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ListView } from 'react-native'
+import { View, Text, ListView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 // Styles
@@ -39,9 +39,9 @@ class SourceGrid extends React.Component {
 
   renderRow (rowData) {
     return (
-      <View style={styles.row}>
+      <TouchableOpacity style={styles.row} onPress={() => {}}>
         <Text style={styles.boldLabel}>{rowData.name}</Text>
-      </View>
+      </TouchableOpacity>
     )
   }
 

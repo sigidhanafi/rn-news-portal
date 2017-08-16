@@ -44,6 +44,8 @@ class CustomNavBar extends React.Component {
   renderRightButtons () {
     if (this.state.showSearchBar) {
       return <View style={{width: Metrics.icons.medium}} />
+    } else if (!this.props.showSearchButton) {
+      return null
     } else {
       return (
         <View style={styles.rightButtons}>
@@ -55,6 +57,8 @@ class CustomNavBar extends React.Component {
 
   renderLeftButtons () {
     if (this.state.showSearchBar) {
+      return null
+    } else if (!this.props.showBackButton) {
       return null
     } else {
       return (
