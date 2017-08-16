@@ -6,7 +6,8 @@ export function * getSource (api) {
   const res = yield call(api.getSource, language)
   if (res.ok) {
     if (res.data.status === 'ok') {
-      yield put(SourceActions.sourceSuccess(res.data.sources))
+      const data = res.data.sources.filter((source) => (source.sortBysAvailable.length > 1))
+      yield put(SourceActions.sourceSuccess(data))
     } else {
       yield put(SourceActions.sourceFailure())
     }

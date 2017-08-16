@@ -39,9 +39,9 @@ class SourceGrid extends React.Component {
   }
 
   renderRow (rowData) {
-    const sortAvailable = rowData.sortBysAvailable && Array.isArray(rowData.sortBysAvailable) && rowData.sortBysAvailable.length > 0 ? rowData.sortBysAvailable[0] : null
+    const sortAvailable = rowData.sortBysAvailable && Array.isArray(rowData.sortBysAvailable) && rowData.sortBysAvailable.length > 0 ? rowData.sortBysAvailable : []
     return (
-      <TouchableOpacity style={styles.row} onPress={() => Actions.articleScreen({sourceId: rowData.id, sortBy: sortAvailable, title: rowData.name})}>
+      <TouchableOpacity style={styles.row} onPress={() => Actions.articleScreen({sourceId: rowData.id, sortAvailable, title: rowData.name})}>
         <Text style={styles.boldLabel}>{rowData.name}</Text>
       </TouchableOpacity>
     )
