@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
-import { View, Image, LayoutAnimation } from 'react-native'
+import { View, Text, LayoutAnimation, TouchableOpacity } from 'react-native'
 import NavItems from './NavItems'
 import styles from './Styles/CustomNavBarStyles'
 import SearchBar from '../Components/SearchBar'
 import { connect } from 'react-redux'
-import { Metrics, Images } from '../Themes'
+import { Metrics } from '../Themes'
 import SearchActions from '../Redux/SearchRedux'
 
 class CustomNavBar extends React.Component {
@@ -34,7 +34,9 @@ class CustomNavBar extends React.Component {
       return <SearchBar onSearch={this.props.performSearch} searchTerm={this.props.searchTerm} onCancel={this.cancelSearch} />
     } else {
       return (
-        <Image resizeMode='cover' style={styles.logo} source={Images.clearLogo} />
+        <View style={styles.middleContainer}>
+          <Text style={styles.title}> {this.props.title} </Text>
+        </View>
       )
     }
   }
@@ -56,8 +58,10 @@ class CustomNavBar extends React.Component {
       return null
     } else {
       return (
-        <View style={styles.leftButtons}>
-          {NavItems.backButton()}
+        <View style={styles.leftContainer}>
+          <TouchableOpacity onPress={this.handleBackPress} style={styles.buttonContainer}>
+            {NavItems.backButton()}
+          </TouchableOpacity>
         </View>
       )
     }

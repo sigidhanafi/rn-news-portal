@@ -15,11 +15,11 @@ const openDrawer = () => {
 export default {
   backButton () {
     return (
-      <TouchableOpacity onPress={NavigationActions.pop}>
+      <TouchableOpacity onPress={NavigationActions.pop} style={styles.buttonContainer}>
         <Icon name='angle-left'
-          size={Metrics.icons.large}
+          size={Metrics.icons.medium}
           color={Colors.snow}
-          style={styles.backButton}
+          style={styles.buttonIcon}
         />
       </TouchableOpacity>
     )
@@ -39,11 +39,11 @@ export default {
 
   searchButton (callback) {
     return (
-      <TouchableOpacity onPress={callback}>
+      <TouchableOpacity onPress={callback} style={styles.buttonContainer}>
         <Icon name='search'
           size={Metrics.icons.small}
           color={Colors.snow}
-          style={styles.searchButton}
+          style={styles.buttonIcon}
         />
       </TouchableOpacity>
     )

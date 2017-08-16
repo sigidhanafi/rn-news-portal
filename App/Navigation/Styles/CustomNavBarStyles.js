@@ -6,36 +6,41 @@ export default {
     top: 0,
     left: 0,
     right: 0,
-    height: Metrics.navBarHeight,
-    paddingTop: Metrics.smallMargin,
-    paddingHorizontal: 5,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.header,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    height: Metrics.navBarHeight
+  },
+  leftContainer: {
+    flex: 0.6
+  },
+  rightContainer: {
+    flex: 0.6
+  },
+  middleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 6
   },
   title: {
-    flex: 1,
-    textAlign: 'center',
     color: Colors.snow,
-    marginTop: Metrics.doubleBaseMargin,
-    backgroundColor: Colors.transparent,
-    fontWeight: 'bold',
-    fontSize: Fonts.size.input
+    fontFamily: Fonts.type.base,
+    fontSize: Fonts.size.regular,
+    fontWeight: '600',
+    lineHeight: 22
   },
-  logo: {
+  buttonContainer: {
+    height: Metrics.navBarHeight,
+    justifyContent: 'center'
+  },
+  buttonIcon: {
+    marginRight: Metrics.baseMargin,
+    marginLeft: Metrics.baseMargin
+  },
+  leftLogo: {
+    justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: Metrics.baseMargin,
-    height: Metrics.icons.large,
-    width: Metrics.icons.large
-  },
-  rightButtons: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    flexDirection: 'row'
-  },
-  leftButtons: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    flexDirection: 'row'
+    marginLeft: Metrics.marginHorizontal,
+    marginRight: Metrics.marginHorizontal,
+    height: Metrics.icons.large
   }
 }
