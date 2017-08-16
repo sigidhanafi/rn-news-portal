@@ -5,9 +5,11 @@ import DebugConfig from '../Config/DebugConfig'
 
 /* ------------- Types ------------- */
 import { SourceTypes } from '../Redux/SourceRedux'
+import { ArticleTypes } from '../Redux/ArticleRedux'
 
 /* ------------- Sagas ------------- */
 import { getSource } from './SourceSagas'
+import { getArticle } from './ArticleSagas'
 
 /* ------------- API ------------- */
 
@@ -19,6 +21,7 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 
 export default function * root () {
   yield [
-    takeLatest(SourceTypes.SOURCE_REQUEST, getSource, api)
+    takeLatest(SourceTypes.SOURCE_REQUEST, getSource, api),
+    takeLatest(ArticleTypes.ARTICLE_REQUEST, getArticle, api)
   ]
 }

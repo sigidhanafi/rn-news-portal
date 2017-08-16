@@ -2,6 +2,7 @@
 import apisauce from 'apisauce'
 
 const apiURL = 'https://newsapi.org/v1/'
+const apiKey = '871c4309f5864dc28ac26a72e3ada496'
 
 // our "constructor"
 const create = (baseURL = apiURL) => {
@@ -47,6 +48,10 @@ const create = (baseURL = apiURL) => {
     return api.get(`sources?language=${language}`)
   }
 
+  const getArticle = (source, sortBy) => {
+    return api.get(`articles?source=${source}&sortBy=${sortBy}&apiKey=${apiKey}`)
+  }
+
   // ------
   // STEP 3
   // ------
@@ -61,7 +66,8 @@ const create = (baseURL = apiURL) => {
   //
   return {
     // a list of the API functions from step 2
-    getSource
+    getSource,
+    getArticle
   }
 }
 

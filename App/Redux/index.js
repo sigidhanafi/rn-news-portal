@@ -6,7 +6,8 @@ export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
     search: require('./SearchRedux').reducer,
-    source: require('./SourceRedux').reducer
+    source: require('./SourceRedux').reducer,
+    article: require('./ArticleRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga)

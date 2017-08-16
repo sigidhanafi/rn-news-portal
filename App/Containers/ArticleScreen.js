@@ -6,19 +6,36 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 // styles
 import styles from './Styles/ArticleScreenStyles.js'
 
+// redux
+import ArticleActions from '../Redux/ArticleRedux'
+
 class ArticleScreen extends React.Component {
   state: {
-    fetching: boolean
+    fetching: boolean,
+    sourceId: string,
+    sortBy: string
   }
 
   constructor (props) {
     super(props)
     this.state = {
-      fetching: false
+      fetching: false,
+      sourceId: props.sourceId,
+      sortBy: props.sortBy
     }
   }
 
+  componentWillReceiveProps (newProps) {
+    const { sourceId, sortBy } = newProps
+    this.setState({
+      sourceId,
+      sortBy
+    })
+  }
+
   componentDidMount () {
+    const { sourceId, sortBy } = this.props
+    this.props.fetchArticle(sourceId, sortBy)
   }
 
   render () {
@@ -55,6 +72,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchArticle: (source, sortBy) => dispatch(ArticleActions.articleRequest(source, sortBy))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleScreen)
