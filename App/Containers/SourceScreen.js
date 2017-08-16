@@ -1,8 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
 
 // styles
 import styles from './Styles/SourceScreenStyles.js'
+
+// redux
+import SourceActions from '../Redux/SourceRedux'
 
 class SourceScreen extends React.Component {
   state: {
@@ -16,6 +20,10 @@ class SourceScreen extends React.Component {
     }
   }
 
+  componentDidMount () {
+    this.props.fetchSource()
+  }
+
   render () {
     return (
       <View style={styles.container}>
@@ -25,4 +33,12 @@ class SourceScreen extends React.Component {
   }
 }
 
-export default SourceScreen
+const mapStateToProps = (state) => ({
+  source: state.source
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchSource: () => dispatch(SourceActions.sourceRequest())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SourceScreen)

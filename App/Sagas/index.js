@@ -4,18 +4,10 @@ import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
 
 /* ------------- Types ------------- */
-
-import { StartupTypes } from '../Redux/StartupRedux'
-import { GithubTypes } from '../Redux/GithubRedux'
-import { LoginTypes } from '../Redux/LoginRedux'
-import { OpenScreenTypes } from '../Redux/OpenScreenRedux'
+import { SourceTypes } from '../Redux/SourceRedux'
 
 /* ------------- Sagas ------------- */
-
-import { startup } from './StartupSagas'
-import { login } from './LoginSagas'
-import { getUserAvatar } from './GithubSagas'
-import { openScreen } from './OpenScreenSagas'
+import { getSource } from './SourceSagas'
 
 /* ------------- API ------------- */
 
@@ -27,12 +19,6 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 
 export default function * root () {
   yield [
-    // some sagas only receive an action
-    takeLatest(StartupTypes.STARTUP, startup),
-    takeLatest(LoginTypes.LOGIN_REQUEST, login),
-    takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
-
-    // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    takeLatest(SourceTypes.SOURCE_REQUEST, getSource, api)
   ]
 }
