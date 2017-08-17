@@ -38,7 +38,7 @@ If you have to bypass lint for a special commit that you will come back and clea
 The linting rules are from JS Standard and React-Standard.  [Regular JS errors can be found with descriptions here](http://eslint.org/docs/rules/), while [React errors and descriptions can be found here](https://github.com/yannickcr/eslint-plugin-react).
 
 ## Demo
-![source list](https://github.com/sigidhanafi/rn-news-portal/blob/master/image-demo/source%20-%20list.png ==100x)
+![source list](https://github.com/sigidhanafi/rn-news-portal/blob/master/image-demo/source%20-%20list.png | width=100)
 ![source list](https://github.com/sigidhanafi/rn-news-portal/blob/master/image-demo/article%20-%20list%202.png)
 ![source list](https://github.com/sigidhanafi/rn-news-portal/blob/master/image-demo/article%20-%20list%201.pn)
 ![source list](https://github.com/sigidhanafi/rn-news-portal/blob/master/image-demo/article%20-%20detail.png)
