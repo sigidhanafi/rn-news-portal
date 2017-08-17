@@ -61,9 +61,18 @@ class SourceGrid extends React.Component {
   }
 
   render () {
-    const { fetching } = this.state
+    const { fetching, source } = this.state
     if (fetching) {
       return <CustomSpinner />
+    }
+    if (source && Array.isArray(source) && source.length <= 0) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.notFoundContainer}>
+            <Text style={styles.label}>Source not found</Text>
+          </View>
+        </View>
+      )
     }
     return (
       <View style={styles.container}>

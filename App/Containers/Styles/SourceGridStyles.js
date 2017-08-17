@@ -26,7 +26,7 @@ export default StyleSheet.create({
   },
   label: {
     alignSelf: 'center',
-    color: Colors.snow,
+    color: Colors.black,
     textAlign: 'center'
   },
   listContent: {
@@ -35,5 +35,10 @@ export default StyleSheet.create({
     flexWrap: 'wrap',
     paddingTop: Metrics.baseMargin,
     paddingBottom: Metrics.baseMargin
+  },
+  notFoundContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })

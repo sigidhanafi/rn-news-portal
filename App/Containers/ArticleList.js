@@ -74,7 +74,7 @@ class ArticleList extends React.Component {
       return (
         <View style={styles.container}>
           <View style={styles.notFoundContainer}>
-            <Text style={styles.boldLabel}>Article not found</Text>
+            <Text style={styles.label}>Article not found</Text>
           </View>
         </View>
       )
