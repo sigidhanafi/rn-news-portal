@@ -6,6 +6,9 @@ import { Actions } from 'react-native-router-flux'
 // Styles
 import styles from './Styles/ArticleListStyles'
 
+// component
+import CustomSpinner from '../Components/CustomSpinner'
+
 class ArticleList extends React.Component {
 
   state: {
@@ -63,6 +66,10 @@ class ArticleList extends React.Component {
   }
 
   render () {
+    const { fetching } = this.state
+    if (fetching) {
+      return <CustomSpinner />
+    }
     return (
       <View style={styles.container}>
         <ListView

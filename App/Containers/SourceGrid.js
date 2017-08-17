@@ -9,6 +9,9 @@ import styles from './Styles/SourceGridStyles'
 // asstes
 import { Images } from '../Themes'
 
+// component
+import CustomSpinner from '../Components/CustomSpinner'
+
 class SourceGrid extends React.Component {
   state: {
     fetching: boolean,
@@ -58,6 +61,10 @@ class SourceGrid extends React.Component {
   }
 
   render () {
+    const { fetching } = this.state
+    if (fetching) {
+      return <CustomSpinner />
+    }
     return (
       <View style={styles.container}>
         <ListView

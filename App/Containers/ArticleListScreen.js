@@ -37,11 +37,11 @@ class ArticleScreen extends React.Component {
   }
 
   componentDidMount () {
-    const { sourceId, sortAvailable } = this.props
-    const sortBy = sortAvailable && Array.isArray(sortAvailable) && sortAvailable.length > 0 ? sortAvailable[0] : null
-    if (sourceId && sortBy) {
-      this.props.fetchArticle(sourceId, sortBy)
-    }
+    // const { sourceId, sortAvailable } = this.props
+    // const sortBy = sortAvailable && Array.isArray(sortAvailable) && sortAvailable.length > 0 ? sortAvailable[0] : null
+    // if (sourceId && sortBy) {
+    //   this.props.fetchArticle(sourceId, sortBy)
+    // }
   }
 
   renderTabbarContent = (sortBy) => {
