@@ -27,10 +27,11 @@ class CustomNavBar extends React.Component {
 
   changeText = (searchTerm) => {
     this.setState({ searchTerm })
+    this.props.performSearch(searchTerm)
   }
 
   onSearch = (searchTerm) => {
-    // this.props.performSearch(searchTerm)
+    this.props.performSearch(searchTerm)
   }
 
   renderMiddle () {
@@ -118,7 +119,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    performSearch: (searchTerm) => dispatch(SearchActions.search(searchTerm)),
+    performSearch: (searchTerm) => dispatch(SearchActions.searchRequest(searchTerm)),
     cancelSearch: () => dispatch(SearchActions.cancelSearch())
   }
 }

@@ -6,10 +6,12 @@ import DebugConfig from '../Config/DebugConfig'
 /* ------------- Types ------------- */
 import { SourceTypes } from '../Redux/SourceRedux'
 import { ArticleTypes } from '../Redux/ArticleRedux'
+import { SearchTypes } from '../Redux/SearchRedux'
 
 /* ------------- Sagas ------------- */
 import { getSource } from './SourceSagas'
 import { getArticle } from './ArticleSagas'
+import { updateSearchParameter } from './SearchSagas'
 
 /* ------------- API ------------- */
 
@@ -22,6 +24,7 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 export default function * root () {
   yield [
     takeLatest(SourceTypes.SOURCE_REQUEST, getSource, api),
-    takeLatest(ArticleTypes.ARTICLE_REQUEST, getArticle, api)
+    takeLatest(ArticleTypes.ARTICLE_REQUEST, getArticle, api),
+    takeLatest(SearchTypes.SEARCH_REQUEST, updateSearchParameter)
   ]
 }
