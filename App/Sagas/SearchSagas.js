@@ -3,6 +3,6 @@ import { delay } from 'redux-saga'
 import SearchActions from '../Redux/SearchRedux'
 
 export function * updateSearchParameter ({ searchTerm }) {
-  yield delay(500)
+  yield delay(350)
   yield put(SearchActions.searchSuccess(searchTerm))
 }

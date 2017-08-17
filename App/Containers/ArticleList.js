@@ -66,9 +66,18 @@ class ArticleList extends React.Component {
   }
 
   render () {
-    const { fetching } = this.state
+    const { fetching, article, sortBy } = this.state
     if (fetching) {
       return <CustomSpinner />
+    }
+    if (article && article[sortBy] && Array.isArray(article[sortBy]) && article[sortBy].length <= 0) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.notFoundContainer}>
+            <Text style={styles.boldLabel}>Article not found</Text>
+          </View>
+        </View>
+      )
     }
     return (
       <View style={styles.container}>

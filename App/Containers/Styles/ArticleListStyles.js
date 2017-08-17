@@ -33,5 +33,10 @@ export default StyleSheet.create({
     color: Colors.black
   },
   listContent: {
+  },
+  notFoundContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
