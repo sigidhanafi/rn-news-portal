@@ -6,6 +6,9 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 // styles
 import styles from './Styles/ArticleListScreenStyles.js'
 
+// assets
+import { Colors } from '../Themes'
+
 // redux
 import ArticleActions from '../Redux/ArticleRedux'
 
@@ -66,6 +69,7 @@ class ArticleScreen extends React.Component {
             this.props.fetchArticle(sourceId, sortBy)
           }}
           locked
+          tabBarUnderlineStyle={{ backgroundColor: Colors.header }}
         >
           { sortAvailable && Array.isArray(sortAvailable) && sortAvailable.length > 0
             ? sortAvailable.map((sortBy) => this.renderTabbarContent(sortBy))
