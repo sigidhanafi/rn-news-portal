@@ -58,7 +58,7 @@ class ArticleList extends React.Component {
           />
           <View style={styles.rowtextContainer}>
             <Text style={styles.boldLabel}>{rowData.title}</Text>
-            <Text style={styles.label}>{rowData.description}</Text>
+            <Text style={styles.label}>{(rowData.description).substr(0, 150)}</Text>
           </View>
         </View>
       </TouchableOpacity>
