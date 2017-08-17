@@ -1,6 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
+import SplashScreen from 'react-native-splash-screen'
 
 // styles
 import styles from './Styles/SourceScreenStyles.js'
@@ -24,6 +25,7 @@ class SourceScreen extends React.Component {
   }
 
   componentDidMount () {
+    SplashScreen.hide()
     this.props.fetchSource()
   }
 
