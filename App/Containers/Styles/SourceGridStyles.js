@@ -13,12 +13,16 @@ export default StyleSheet.create({
     backgroundColor: Colors.snow,
     marginBottom: Metrics.baseMargin
   },
+  rowImage: {
+    resizeMode: 'center',
+    flex: 1
+  },
   boldLabel: {
     fontWeight: 'bold',
     alignSelf: 'center',
     color: Colors.black,
     textAlign: 'center',
-    marginVertical: Metrics.baseMargin
+    marginBottom: Metrics.smallMargin
   },
   label: {
     alignSelf: 'center',

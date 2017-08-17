@@ -3,10 +3,11 @@ import { View, Image, Text, ListView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
-import { Images } from '../Themes'
-
 // Styles
 import styles from './Styles/SourceGridStyles'
+
+// asstes
+import { Images } from '../Themes'
 
 class SourceGrid extends React.Component {
   state: {
@@ -42,9 +43,15 @@ class SourceGrid extends React.Component {
 
   renderRow (rowData) {
     const sortAvailable = rowData.sortBysAvailable && Array.isArray(rowData.sortBysAvailable) && rowData.sortBysAvailable.length > 0 ? rowData.sortBysAvailable : []
+    let imageName = rowData.id.split('-')
+    imageName = imageName.map((name) => name[0].toUpperCase() + name.substr(1))
+    imageName = imageName.join('')
     return (
       <TouchableOpacity style={styles.row} onPress={() => Actions.articleListScreen({sourceId: rowData.id, sortAvailable, title: rowData.name})}>
-        <Image source={Images.businessInsiderUk} />
+        <Image
+          source={Images[imageName]}
+          style={styles.rowImage}
+        />
         <Text style={styles.boldLabel}>{rowData.name}</Text>
       </TouchableOpacity>
     )
