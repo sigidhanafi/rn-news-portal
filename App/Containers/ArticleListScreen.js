@@ -60,7 +60,7 @@ class ArticleScreen extends React.Component {
   renderTabbarContent = (sortBy) => {
     const {sourceId} = this.state
     return (
-      <View tabLabel={sortBy} key={sortBy} sortBy={sortBy} style={{ flex: 1 }}>
+      <View tabLabel={sortBy.toUpperCase()} key={sortBy} sortBy={sortBy} style={{ flex: 1 }}>
         <ArticleList sortBy={sortBy} sourceId={sourceId} />
       </View>
     )
@@ -81,6 +81,7 @@ class ArticleScreen extends React.Component {
           }}
           locked
           tabBarUnderlineStyle={{ backgroundColor: Colors.header }}
+          tabBarActiveTextColor={Colors.header}
         >
           { sortAvailable && Array.isArray(sortAvailable) && sortAvailable.length > 0
             ? sortAvailable.map((sortBy) => this.renderTabbarContent(sortBy))

@@ -17,7 +17,7 @@ class NavigationRouter extends Component {
     return (
       <Router>
         <Scene key='root'>
-          <Scene initial key='sourceScreen' component={SourceScreen} title='News Portal' navBar={CustomNavBar} showSearchBar />
+          <Scene initial key='sourceScreen' component={SourceScreen} title='News Portal' navBar={CustomNavBar} />
           <Scene key='articleListScreen' component={ArticleListScreen} title='Source' navBar={CustomNavBar} showBackButton showSearchButton />
           <Scene key='articleScreen' component={ArticleScreen} title='Article' navBar={CustomNavBar} showBackButton />
         </Scene>
