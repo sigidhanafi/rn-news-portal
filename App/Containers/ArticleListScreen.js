@@ -19,7 +19,9 @@ class ArticleScreen extends React.Component {
   state: {
     fetching: boolean,
     sourceId: string,
-    sortAvailable: any
+    sortBy: string,
+    sortAvailable: any,
+    searchTerm: any
   }
 
   constructor (props) {
@@ -27,15 +29,23 @@ class ArticleScreen extends React.Component {
     this.state = {
       fetching: false,
       sourceId: props.sourceId,
-      sortAvailable: props.sortAvailable
+      sortBy: props.sortAvailable && Array.isArray(props.sortAvailable) && props.sortAvailable.length > 0 ? props.sortAvailable[0] : null,
+      sortAvailable: props.sortAvailable,
+      searchTerm: props.search.searchTerm || ''
     }
   }
 
   componentWillReceiveProps (newProps) {
-    const { sourceId, sortAvailable } = newProps
+    const { sourceId, sortAvailable, search } = newProps
+    if (search && search.searchTerm !== this.state.searchTerm) {
+      const { sortBy, sourceId } = this.state
+      this.props.fetchArticle(sourceId, sortBy)
+    }
     this.setState({
+      searchTerm: search.searchTerm,
       sourceId,
-      sortAvailable
+      sortAvailable,
+      search
     })
   }
 
@@ -67,6 +77,7 @@ class ArticleScreen extends React.Component {
           onChangeTab={(event) => {
             const {sortBy} = event.ref.props
             this.props.fetchArticle(sourceId, sortBy)
+            this.setState({ sortBy })
           }}
           locked
           tabBarUnderlineStyle={{ backgroundColor: Colors.header }}
@@ -82,7 +93,8 @@ class ArticleScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  source: state.source
+  source: state.source,
+  search: state.search
 })
 
 const mapDispatchToProps = (dispatch) => ({

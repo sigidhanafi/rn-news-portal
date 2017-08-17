@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
   }
 
   render () {
-    const { onSearch, onCancel, searchTerm } = this.props
+    const { onSearch, onCancel, searchTerm, onChangeText } = this.props
     const onSubmitEditing = () => onSearch(searchTerm)
     return (
       <View style={styles.container}>
@@ -25,7 +25,7 @@ export default class SearchBar extends React.Component {
           underlineColorAndroid='transparent'
           style={styles.searchInput}
           value={this.props.searchTerm}
-          onChangeText={onSearch}
+          onChangeText={onChangeText}
           autoCapitalize='none'
           onSubmitEditing={onSubmitEditing}
           returnKeyType={'search'}

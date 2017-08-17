@@ -11,7 +11,8 @@ class CustomNavBar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      showSearchBar: false
+      showSearchBar: false,
+      searchTerm: ''
     }
   }
 
@@ -20,18 +21,22 @@ class CustomNavBar extends React.Component {
   }
 
   cancelSearch = () => {
-    this.setState({showSearchBar: false})
+    this.setState({showSearchBar: false, searchTerm: ''})
     this.props.cancelSearch()
   }
 
+  changeText = (searchTerm) => {
+    this.setState({ searchTerm })
+  }
+
   onSearch = (searchTerm) => {
-    this.props.performSearch(searchTerm)
+    // this.props.performSearch(searchTerm)
   }
 
   renderMiddle () {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
     if (this.state.showSearchBar) {
-      return <SearchBar onSearch={this.props.performSearch} searchTerm={this.props.searchTerm} onCancel={this.cancelSearch} />
+      return <SearchBar onSearch={this.props.performSearch} onChangeText={this.changeText} searchTerm={this.state.searchTerm} onCancel={this.cancelSearch} />
     } else {
       return (
         <View style={styles.middleContainer}>
