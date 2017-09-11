@@ -96,6 +96,14 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            storeFile file(MY_NEWSPORTAL_RELEASE_STORE_FILE)
+            storePassword MY_NEWSPORTAL_RELEASE_STORE_PASSWORD
+            keyAlias MY_NEWSPORTAL_RELEASE_KEY_ALIAS
+            keyPassword MY_NEWSPORTAL_RELEASE_KEY_PASSWORD
+        }
+    }
     splits {
         abi {
             reset()
@@ -108,6 +116,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -126,6 +135,8 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-splash-screen')
+    compile project(':react-native-vector-icons')
     compile project(':react-native-device-info')
     compile project(':react-native-config')
     compile fileTree(dir: "libs", include: ["*.jar"])

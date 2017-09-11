@@ -36,6 +36,7 @@
     "react-native-drawer": "2.3.0",
     "react-native-router-flux": "3.38.0",
     "react-native-scrollable-tab-view": "^0.7.4",
+    "react-native-splash-screen": "^2.1.0",
     "react-native-vector-icons": "^4.3.0",
     "react-redux": "5.0.4",
     "redux": "3.6.0",
